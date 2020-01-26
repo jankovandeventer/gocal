@@ -1,5 +1,35 @@
+<h1>
+  {{.Current.Weekday}} {{.Current.Day}} {{.Current.Month}} {{.Current.Year}}
+</h1>
+<hr />
 <div class="month">
-    <div class="day">
-        <div class="entry">{{.}}</div>
+  {{range .Days}} 
+    {{ if or (eq .Weekday 0) (eq .Weekday 6) }}
+        <div class="day weekend">
+    {{else}}
+        <div class="day">
+    {{end}}
+            <div class="date">
+            {{.Weekday}} {{.Day}}
+                <div>Here is the part of the day</div>
+            </div>
+        </div>
+      {{end}}
     </div>
-</div>
+
+<style>
+    .day {
+    /* display: inline-block; */
+    border: 1px solid black;
+    min-width: 12%;
+    padding: 1em;
+    float: left;
+    margin: 1px;
+    }
+    .date {
+    border-bottom: 1px solid black;
+    }
+    .weekend {
+    background-color: grey;
+    }
+</style>
