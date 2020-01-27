@@ -35,10 +35,9 @@ var event_fields = []Fields{
 	{"note", TEXT},
 	{"inviter", VARCHAR},
 	{"invitees", VARCHAR},
-	{"TESTCOLUMN", VARCHAR},
-	{"TESTCOLUMN2", BOOL},
 }
 
+/** TODO: remove this once concept is grasped*/
 func Example() {
 	database, _ := sql.Open("sqlite3", "./janko.db")
 	statement, _ := database.Prepare("CREATE TABLE IF NOT EXISTS " + EventTable + " (id INTEGER PRIMARY_KEY, subject TEXT)")

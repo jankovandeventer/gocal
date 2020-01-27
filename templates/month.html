@@ -3,33 +3,32 @@
 </h1>
 <hr />
 <div class="month">
-  {{range .Days}} 
-    {{ if or (eq .Weekday 0) (eq .Weekday 6) }}
-        <div class="day weekend">
+  {{range .Days}} {{ if or (eq .Weekday 0) (eq .Weekday 6) }}
+  <div class="day weekend">
     {{else}}
-        <div class="day">
-    {{end}}
-            <div class="date">
-            {{.Weekday}} {{.Day}}
-                <div>Here is the part of the day</div>
-            </div>
-        </div>
+    <div class="day">
       {{end}}
+      <div class="date">
+        {{.Weekday}} {{.Day}}
+        <div>Here is the part of the day</div>
+      </div>
     </div>
+    {{end}}
+  </div>
 
-<style>
+  <style>
     .day {
-    /* display: inline-block; */
-    border: 1px solid black;
-    min-width: 12%;
-    padding: 1em;
-    float: left;
-    margin: 1px;
+      border: 1px solid black;
+      min-width: 12%;
+      padding: 1em;
+      float: left;
+      margin: 1px;
     }
     .date {
-    border-bottom: 1px solid black;
+      border-bottom: 1px solid black;
     }
     .weekend {
-    background-color: grey;
+      background-color: grey;
     }
-</style>
+  </style>
+</div>
